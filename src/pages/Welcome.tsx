@@ -16,7 +16,7 @@ const Welcome: React.FC = () => {
     <PageContainer>
       <Card>
         <Alert
-          message={'...更快更强的重型组件，已经发布...！！'}
+          message={'小组成员：章子彬 金林涛 欧阳嘉豪 李茗阳'}
           type="success"
           showIcon
           banner
