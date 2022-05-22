@@ -26,32 +26,24 @@ const Welcome: React.FC = () => {
           }}
         />
         <Typography.Text strong>
-          高级表格{' '}
+          世界上最好的在线拍卖网站！！！{' '}
           <a
-            href="https://procomponents.ant.design/components/table"
-            rel="noopener noreferrer"
-            target="__blank"
+            href="http://106.13.200.151"
           >
             欢迎使用
           </a>
         </Typography.Text>
-        <CodePreview>yarn add @ant-design/pro-table</CodePreview>
-        <Typography.Text
-          strong
-          style={{
-            marginBottom: 12,
-          }}
-        >
-          高级布局{' '}
+        <CodePreview>www.jltfxy.top</CodePreview>
+        <Typography.Text strong>
+          项目 github地址 {' '}
           <a
-            href="https://procomponents.ant.design/components/layout"
-            rel="noopener noreferrer"
-            target="__blank"
+            href="https://github.com/yangtao99"
           >
-            欢迎使用
+            欢迎指正
           </a>
         </Typography.Text>
-        <CodePreview>yarn add @ant-design/pro-layout</CodePreview>
+        <CodePreview>后端（java）：https://github.com/yangtao99/coder-web--.git</CodePreview>
+        <CodePreview>https://github.com/yangtao99/coder_web_-.git</CodePreview>
       </Card>
     </PageContainer>
   );
