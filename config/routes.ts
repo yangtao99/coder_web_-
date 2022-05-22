@@ -24,6 +24,16 @@
       {component: './404'},
     ],
   },
+  {
+    path: '/Auction',
+    name: '拍卖品一览',
+    icon: 'crown',
+    component: './Auction',
+    routes: [
+      {path: '/Auction/display', name: '拍卖品一览', icon: 'smile', component: './Auction/Display'},
+      {component: './404'},
+    ],
+  },
   {path: '/', redirect: '/welcome'},
   {component: './404'},
 ];
