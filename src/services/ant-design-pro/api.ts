@@ -1,6 +1,17 @@
 // @ts-ignore
 /* eslint-disable */
-import {history, request} from 'umi';
+import { request } from 'umi';
+
+/** 新增加拍卖品 POST /api/user/current */
+export async function fakeSubmitForm(params: any) {
+  return request<number>('/api/auction/addAuction', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: params,
+  });
+}
 
 /** 获取当前的用户 GET /api/user/current */
 export async function currentUser(options?: { [key: string]: any }) {
@@ -43,7 +54,7 @@ export async function register(body: API.RegisterParams, options?: { [key: strin
 }
 
 /** 搜索用户 POST /api/user/search */
-export async function searchUsers(body: API.SearchParams,options?: { [key: string]: any }) {
+export async function searchUsers(body: API.SearchParams, options?: { [key: string]: any }) {
   return request<API.CurrentUser[]>('/api/user/search', {
     method: 'POST',
     headers: {
@@ -54,10 +65,9 @@ export async function searchUsers(body: API.SearchParams,options?: { [key: strin
   });
 }
 /** 删除用户 POST /api/user/delete */
-export async function deleteUsers(body: number,options?: { [key: string]: any }) {
-  alert('删除成功');
-  history.go(0);
-  return request<API.deleteResult> ('/api/user/delete', {
+export async function deleteUsers(body: number, options?: { [key: string]: any }) {
+  alert('删除成功,请刷新表单');
+  return request<API.deleteResult>('/api/user/delete', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -68,10 +78,20 @@ export async function deleteUsers(body: number,options?: { [key: string]: any })
 }
 
 /** 重设性别 POST /api/user/changeSex */
-export async function changSex(body: number,options?: { [key: string]: any }) {
-  alert('设置成功');
-  history.go(0);
-  return request<API.changeSexResult> ('/api/user/changeSex', {
+export async function changSex(body: number, options?: { [key: string]: any }) {
+  alert('设置成功,请刷新表单');
+  return request<API.changeSexResult>('/api/user/changeSex', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+/** 搜索所有拍卖物 POST /api/auction/searchAllAuction */
+export async function searchALlAuction(body: API.SearchAllAuctionParams|null, options?: { [key: string]: any }) {
+  return request<API.AuctionMessage[]>('/api/auction/searchAllAuction', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -81,6 +101,9 @@ export async function changSex(body: number,options?: { [key: string]: any }) {
   });
 }
 
+/** 搜索所有拍卖物 POST /api/auction/searchAllAuction */
+//export async function searchALlAuctionTry(body: API.SearchAllAuctionParams|null): Promise<API.AuctionMessage[]>//todo promise 获取值问题
+
 //
 // /** 搜索用户 GET /api/user/search */
 // export async function searchUsers(options?: { [key: string]: any }) {
@@ -89,8 +112,6 @@ export async function changSex(body: number,options?: { [key: string]: any }) {
 //     ...(options || {}),
 //   });
 // }
-
-
 
 /** 此处后端没有提供注释 GET /api/notices */
 export async function getNotices(options?: { [key: string]: any }) {

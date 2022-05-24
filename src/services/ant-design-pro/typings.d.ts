@@ -4,15 +4,15 @@
 declare namespace API {
   type CurrentUser = {
     id: number;
-    username:string;
+    username: string;
     userAccount: string;
-    avatarUrl?:string;
-    gender:string;
-    phone:string;
-    email:string;
-    userStatus:number;
-    creatTime:Date;
-    userRole:number;
+    avatarUrl?: string;
+    gender: string;
+    phone: string;
+    email: string;
+    userStatus: number;
+    creatTime: Date;
+    userRole: number;
     // name?: string;
     // avatar?: string;
     // userid?: string;
@@ -33,7 +33,16 @@ declare namespace API {
     // phone?: string;
   };
 
-
+  type AuctionMessage = {
+    auctionName:?string
+    auctionDescription:?string
+    auctionMesUrl:?string
+    id:?string
+    auctionImageUrl:?string
+    //auctionDate:?Date
+    auctionMoney:?string
+    auctionAddMoney:?string
+  };
 
   type LoginResult = {
     status?: string;
@@ -89,7 +98,8 @@ declare namespace API {
   type RegisterParams = {
     userAccount?: string;
     userPassword?: string;
-    checkPassword?: string
+    checkPassword?: string;
+    username: ?string;
     type?: string;
   };
 
@@ -97,10 +107,15 @@ declare namespace API {
     pageSize?: number;
     current?: number;
     keyword?: string;
-    userAccount?: string;
+    username: ?string;
+    gender: ?string;
     type?: string;
   };
 
+  type SearchAllAuctionParams = {
+    auctionName:?string
+    auctionDescription:?string
+  };
 
   type ErrorResponse = {
     /** 业务约定的错误码 */
