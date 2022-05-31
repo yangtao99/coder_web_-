@@ -6,9 +6,11 @@ import { Button, Image } from 'antd';
 
 const columns: ProColumns<API.CurrentUser>[] = [
   {
+    title:'id',
     dataIndex: 'id',
-    valueType: 'indexBorder',
+//    valueType: 'indexBorder',
     width: 48,
+    hideInSearch: true,
   },
   {
     title: '用户名',

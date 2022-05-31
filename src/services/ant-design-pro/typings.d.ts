@@ -33,15 +33,65 @@ declare namespace API {
     // phone?: string;
   };
 
+  export interface Params {
+    userID: string;
+  }
+  type commentValue={
+    id?:number
+    auctionID?: string,
+    username: string,
+    userAvatar: string,
+    content?: string,
+    price?: string,
+  }
+
+  type AuctionBag = {
+    id: ?string;
+    username: ?string;
+    userID:?string;
+    auctionID:?string;
+    auctionName: ?string;
+//  avatar: string;
+//  cover: string;
+    // status: 'normal' | 'exception' | 'active' | 'success';
+//  percent: number;
+    // logo: string;
+    //href: string;
+//  body?: any;
+    // updatedAt: number;
+    auctionMesUrl: ?string;
+    auctionImageUrl:? string;
+//    createdAt: number;
+    auctionDescription: ?string;
+//  description: string;
+//  activeUser: number;
+//  newUser: number;
+//  star: number;
+//  like: number;
+//  message: number;
+    //content: string;
+    // members: Member[];
+  }
+
+  type ArticleListContentProps = {
+    data: {
+      auctionDescription: string;
+//      createdAt: number;
+//    avatar: string;
+//       auctionMesUrl: string;
+//       auctionImageUrl: string;
+      username: string;
+    };
+  };
+
   type AuctionMessage = {
-    auctionName:?string
-    auctionDescription:?string
-    auctionMesUrl:?string
-    id:?string
-    auctionImageUrl:?string
-    //auctionDate:?Date
-    auctionMoney:?string
-    auctionAddMoney:?string
+    auctionName: ?string
+    auctionDescription: ?string
+    auctionMesUrl: ?string
+    id: ?string
+    auctionImageUrl: ?string
+    auctionMoney: ?string
+    auctionAddMoney: ?string
   };
 
   type LoginResult = {
@@ -112,9 +162,23 @@ declare namespace API {
     type?: string;
   };
 
+  type SearchAuctionParams = {
+    searchValue: ?string
+  };
+
+  type AddAuctionBagParams = {
+    username: ?string;
+    userID:?string;
+    auctionID:?string;
+    auctionName: ?string;
+    auctionMesUrl: ?string;
+    auctionImageUrl:? string;
+    auctionDescription: ?string;
+  };
+
   type SearchAllAuctionParams = {
-    auctionName:?string
-    auctionDescription:?string
+    auctionName: ?string
+    auctionDescription: ?string
   };
 
   type ErrorResponse = {

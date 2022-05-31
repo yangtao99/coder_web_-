@@ -21,7 +21,7 @@ export const initialStateConfig = {
 
 export const request: RequestConfig = {
 
-  prefix: process.env.NODE_ENV === 'production' ? 'http://106.13.200.151' :undefined
+  prefix: process.env.NODE_ENV === 'production' ? 'http://www.jltfxy.top' :undefined
 
 };
 
@@ -64,7 +64,7 @@ export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => 
     rightContentRender: () => <RightContent/>,
     disableContentMargin: false,
     waterMarkProps: {
-      content: initialState?.currentUser?.username,
+      content: '第四组',
     },
     footerRender: () => <Footer/>,
     onPageChange: () => {

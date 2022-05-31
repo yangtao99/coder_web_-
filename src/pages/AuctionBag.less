@@ -1,0 +1,130 @@
+@import '~antd/es/style/themes/default.less';
+
+
+.extraImg {
+  width: 255px;
+  margin-top: -50px;
+  margin-left: -50px;
+
+  text-align: center;
+  img {
+    width: 255px;
+    height: 170px;
+  }
+}
+
+.pageHeaderContent {
+  display: flex;
+
+  .avatar {
+    flex: 0 1 72px;
+
+    & > span {
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+    }
+  }
+
+  .content {
+    position: relative;
+    top: 16px;
+    flex: 1 1 auto;
+    margin-left: 24px;
+    color: @text-color-secondary;
+    line-height: 28px;
+
+    .contentTitle {
+      margin-bottom: 12px;
+      color: @heading-color;
+      font-weight: 800;
+      font-size: 30px;
+      line-height: 28px;
+    }
+  }
+}
+a.listItemMetaTitle {
+  color: @heading-color;
+}
+.listItemExtra {
+  width: 272px;
+  height: 1px;
+}
+.selfTrigger {
+  margin-left: 12px;
+}
+.sizeFont{
+  color: #0d5aa7;
+  font-size: x-large;
+  left: 100px;
+}
+
+@media screen and (max-width: @screen-xs) {
+  .sizeFont {
+    display: block;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: @screen-xs) {
+  .selfTrigger {
+    display: block;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: @screen-md) {
+  .selfTrigger {
+    display: block;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: @screen-lg) {
+  .listItemExtra {
+    width: 0;
+    height: 1px;
+  }
+}
+
+
+@import '~antd/es/style/themes/default.less';
+
+.listContent {
+  .description {
+    max-width: 720px;
+    line-height: 22px;
+  }
+  .extra {
+    margin-top: 16px;
+    color: @text-color-secondary;
+    line-height: 22px;
+    & > :global(.ant-avatar) {
+      position: relative;
+      top: 1px;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      vertical-align: top;
+    }
+    & > em {
+      margin-left: 16px;
+      color: @disabled-color;
+      font-style: normal;
+    }
+  }
+}
+
+@media screen and (max-width: @screen-xs) {
+  .listContent {
+    .extra {
+      & > em {
+        display: block;
+        margin-top: 8px;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+
+
+

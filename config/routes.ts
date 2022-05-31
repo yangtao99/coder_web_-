@@ -41,6 +41,7 @@
       { component: './404' },
     ],
   },
+  { path: '/AuctionBag', name: '我的预购袋', icon: 'table', component: './AuctionBag' },
   { path: '/', redirect: '/welcome' },
   { component: './404' },
 ];

@@ -5,7 +5,6 @@ import { ProFormText, LoginForm } from '@ant-design/pro-form';
 import { history } from 'umi';
 import Footer from '@/components/Footer';
 import { register } from '@/services/ant-design-pro/api';
-import { SYSTEM_LOGO } from '@/constants';
 import styles from './index.less';
 
 const Register: React.FC = () => {
@@ -35,6 +34,7 @@ const Register: React.FC = () => {
         });
         return;
       } else {
+        message.error('注册失败，账号已存在')
         throw new Error(`register error id = ${id}`);
       }
     } catch (error) {
@@ -52,7 +52,7 @@ const Register: React.FC = () => {
               submitText: '注册',
             },
           }}
-          logo={<img alt="logo" src={SYSTEM_LOGO} />}
+          logo={<img alt="logo" src='https://gw.alipayobjects.com/zos/rmsportal/kZzEzemZyKLKFsojXItE.png' />}
           title="在线拍卖网站"
           subTitle={'Author： 章子彬 金林涛 欧阳嘉豪 李茗阳'}
           initialValues={{

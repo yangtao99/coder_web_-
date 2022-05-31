@@ -2,7 +2,70 @@
 /* eslint-disable */
 import { request } from 'umi';
 
-/** 新增加拍卖品 POST /api/user/current */
+
+/** 获取拍卖会消息 POST /api/auctionComment/queryAuctionComment */
+export async function queryAuctionComment(
+  params:string
+){
+  return request<API.commentValue[]>('/api/auctionComment/queryAuctionComment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: params,
+  });
+}
+
+/** 添加评论 POST /api/auctionComment/addAuctionComment */
+export function addAuctionComment(body: API.commentValue, options?: { [key: string]: any }) {
+  return request<number>('/api/auctionComment/addAuctionComment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+
+/** 加入预购袋 POST /api/auctionBag/addAuctionBag */
+export function AddAuctionBag(body: API.AddAuctionBagParams, options?: { [key: string]: any }) {
+  return request<number>('/api/auctionBag/addAuctionBag', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** 展示预购袋 POST /api/auctionBag */
+export async function queryAuctionBag(
+  params: { userID: string },
+){
+  return request<API.AuctionBag[]>('/api/auctionBag/queryAuctionBag', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: params,
+  });
+}
+
+/** 移除购物袋 POST /api/auctionBag/removeAuctionBag */
+export async function removeAuctionBag(params: string|null) {
+  return request<number>('/api/auctionBag/removeAuctionBag', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: params,
+  });
+}
+
+/** 新增加拍卖品 POST /api/auction/addAuction */
 export async function fakeSubmitForm(params: any) {
   return request<number>('/api/auction/addAuction', {
     method: 'POST',
@@ -10,6 +73,29 @@ export async function fakeSubmitForm(params: any) {
       'Content-Type': 'application/json',
     },
     data: params,
+  });
+}
+
+/** 搜索所有拍卖物 POST /api/auction/searchAllAuction */
+export async function searchALlAuction(body: API.SearchAllAuctionParams|null|undefined, options?: { [key: string]: any }) {
+  return request<API.AuctionMessage[]>('/api/auction/searchAllAuction', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** 搜索拍卖品 POST /api/auction/searchAuction */
+export async function searchAuction(body: API.SearchAuctionParams|null) {
+  return request<API.AuctionMessage[]>('/api/auction/searchAuction', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
   });
 }
 
@@ -89,17 +175,7 @@ export async function changSex(body: number, options?: { [key: string]: any }) {
     ...(options || {}),
   });
 }
-/** 搜索所有拍卖物 POST /api/auction/searchAllAuction */
-export async function searchALlAuction(body: API.SearchAllAuctionParams|null, options?: { [key: string]: any }) {
-  return request<API.AuctionMessage[]>('/api/auction/searchAllAuction', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
-    ...(options || {}),
-  });
-}
+
 
 /** 搜索所有拍卖物 POST /api/auction/searchAllAuction */
 //export async function searchALlAuctionTry(body: API.SearchAllAuctionParams|null): Promise<API.AuctionMessage[]>//todo promise 获取值问题

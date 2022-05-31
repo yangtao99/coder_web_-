@@ -5,7 +5,6 @@ import { ProFormCheckbox, ProFormText, LoginForm } from '@ant-design/pro-form';
 import { history, Link, useModel } from 'umi';
 import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
-import { SYSTEM_LOGO } from '@/constants';
 import styles from './index.less';
 
 const LoginMessage: React.FC<{
@@ -43,8 +42,6 @@ const Login: React.FC = () => {
         const defaultLoginSuccessMessage = '登录成功！';
         message.success(defaultLoginSuccessMessage);
         await fetchUserInfo();
-        /** 此方法会跳转到 redirect 参数所在的位置 */
-
         if (!history) return;
         const { query } = history.location;
         const { redirect } = query as {
@@ -52,6 +49,8 @@ const Login: React.FC = () => {
         };
         history.push(redirect || '/');
         return;
+      }else {
+        message.error('密码错误')
       }
 
       setUserLoginState(user);
@@ -66,7 +65,7 @@ const Login: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <LoginForm
-          logo={<img alt="logo" src={SYSTEM_LOGO} />}
+          logo={<img alt="logo" src='https://gw.alipayobjects.com/zos/rmsportal/kZzEzemZyKLKFsojXItE.png' />}
           title="在线拍卖网站"
           subTitle={'Author： 章子彬 金林涛 欧阳嘉豪 李茗阳'}
           initialValues={{

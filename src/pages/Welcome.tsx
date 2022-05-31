@@ -28,7 +28,7 @@ const Welcome: React.FC = () => {
         <Typography.Text strong>
           世界上最好的在线拍卖网站！！！{' '}
           <a
-            href="http://106.13.200.151"
+            href="http://www.jltfxy.top"
           >
             欢迎使用
           </a>
